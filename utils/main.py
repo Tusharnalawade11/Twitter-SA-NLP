@@ -7,13 +7,14 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 
 
 
 ## Load the trained LSTM model and tokenizer
-model = load_model('../models/sentiment_lstm_model.keras')
-tokenizer = pickle.load(open('../models/tokenizer.pkl', 'rb'))
+model = load_model('models/sentiment_lstm_model.keras')
+tokenizer = pickle.load(open('models/tokenizer.pkl', 'rb'))
 
 stop_words = [word for word in stopwords.words('english') if word not in {'not', 'no', 'nor'}]
 
@@ -24,19 +25,7 @@ def text_preprocessing(text):
     text = re.sub(r'[^A-Za-z\s]', '', text)
 
     text = contractions.fix(text)
-    
-    # Spell correction with optimized calls
-    words = word_tokenize(text)
-    corrected_words = []
-    
-    for word in words:
-        if word not in stop_words and len(word) > 1:  # Skip stop words and single chars
-            correction = spell.correction(word)
-            corrected_words.append(correction if correction else word)
-        elif word not in stop_words:  # Keep non-stop words without correction
-            corrected_words.append(word)
-    
-    return ' '.join(corrected_words)
+    return text
 
 
 # Function to preprocess input text
