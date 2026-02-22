@@ -1,0 +1,10 @@
+pandas 
+numpy 
+tensorflow
+nltk 
+scikit-learn
+matplotlib 
+seaborn 
+contractions
+fastapi 
+uvicorn 
