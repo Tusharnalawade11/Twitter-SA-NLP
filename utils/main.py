@@ -17,7 +17,6 @@ tokenizer = pickle.load(open('../models/tokenizer.pkl', 'rb'))
 
 stop_words = [word for word in stopwords.words('english') if word not in {'not', 'no', 'nor'}]
 
-
 def text_preprocessing(text):
     text = re.sub(r'http\S+|www\S+|https\S+', '', text, flags=re.MULTILINE)
     text = re.sub(r'@\w+|#\w+', '', text)

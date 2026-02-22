@@ -4,7 +4,7 @@ tensorflow
 nltk 
 scikit-learn
 matplotlib 
-seaborn
+seaborn 
 contractions
 fastapi 
 uvicorn 
