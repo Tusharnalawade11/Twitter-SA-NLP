@@ -15,7 +15,7 @@ def main():
 
             st.write(f"Predicted Sentiment: {sentiment}")
         else:
-            st.write("Please enter a tweet to analyze.")
+            st.write("Please enter a tweet to analyze!")
 
 if __name__ == "__main__":
     main()

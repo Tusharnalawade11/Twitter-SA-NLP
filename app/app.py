@@ -3,6 +3,7 @@ from requests import request
 from pydantic import BaseModel
 import uvicorn
 
+
 from utils.main import text_preprocessing, predict_sentiment
 
 app = FastAPI()

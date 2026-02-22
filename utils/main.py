@@ -16,7 +16,6 @@ model = load_model('../models/sentiment_lstm_model.keras')
 tokenizer = pickle.load(open('../models/tokenizer.pkl', 'rb'))
 
 stop_words = [word for word in stopwords.words('english') if word not in {'not', 'no', 'nor'}]
-spell = SpellChecker()
 
 
 def text_preprocessing(text):
