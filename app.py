@@ -7,8 +7,8 @@ from utils.main import text_preprocessing, predict_sentiment
 
 app = FastAPI()
 
-class Tweet(BaseModel):
-    text: str
+class TextRequest(BaseModel):
+    tweet: str
 
 class TextResponse(BaseModel):
     text: str
@@ -19,8 +19,8 @@ def read_root():
     return {"message": "Welcome to the Twitter Sentiment Analysis API!"}
 
 @app.post("/analyze")
-def analyze_sentiment(tweet: Tweet):
-    text = tweet.text
+def analyze_sentiment(req: TextRequest):
+    text = req.tweet
     cleaned_text = text_preprocessing(text)
     sentiment = predict_sentiment(cleaned_text)
     return TextResponse(text=text, predicted_sentiment=sentiment)
